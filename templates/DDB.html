@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  {% block ddbStyle %}
+  <style>
+    #demo, #two, #three  {
+      font-weight: bold;
+    }
+
+    #a, #b, #c {
+	visibility:hidden;   
+    }
+
+    #cst, #lif, #sal {
+    display: inline;
+    }
+  </style>
+</head>
+<body>
+{% endblock %}
+{% block ddb %}
+<div class="jumbotron text-center">
+  <h1>Double Declining Balance Depreciation Calculator</h1>
+   
+</div>
+  
+<div class="container">
+
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Enter Asset Cost</h3>     
+      <button onclick="myFunction()">Press</button>
+      <p id= "cst"></p>
+	  <span id="einz"></span>
+    </div>
+    <div class="col-sm-4">
+      <h3>Useful Life</h3>
+      <button onclick="FunctionTwo()">Press</button>
+	  <p id= "lif"></p>
+	  <span id="swie"></span>
+    </div>
+    <div class="col-sm-4">
+      <h3>Enter Salvage Value</h3>        
+      <button onclick="FunctionThree()">Press</button>
+	  <p id= "sal"></p>
+	  <span id="drei"></span>
+    </div>
+  </div>
+  <div class="row">
+  <form method="POST" action= "/A">
+  {% csrf_token %}
+   <div class="col-sm-4">
+	<input  name= "cst" id="a">
+	<input  name= "lif" id="b">
+	<input  name= "sal" id="c">
+      <button onclick="main()">Submit Values</button>  
+  </div>
+</form>
+  <br>
+      
+  </div>
+  
+</div>
+<script>
+  function myFunction() {
+    var balance = prompt("Please enter asset cost");
+    if (balance != null) {
+      document.getElementById("cst").innerHTML = 
+      "Asset cost: "
+      var x = document.getElementById("a")
+      x.value = + balance;	  
+	  var d = document.getElementById("einz")
+	  d.innerHTML = + balance;
+	  
+    }
+  }
+
+  function FunctionTwo() {
+    var years = prompt("Please enter useful life in years");
+    if (years != null) {
+      document.getElementById("lif").innerHTML = 
+      "Useful life: "
+      var y = document.getElementById("b");
+      y.value = + years;
+	  var e = document.getElementById("swie");
+	  e.innerHTML = + years;
+      
+    }
+    
+  }
+
+  function FunctionThree() {
+    var salvage = prompt("Please enter salvage value");
+    if (salvage != null) {
+      document.getElementById("sal").innerHTML = 
+      "Salvage value : "
+      var z = document.getElementById("c");
+      z.value = + salvage;
+	  var f = document.getElementById("drei");
+	  f.innerHTML = + salvage;
+    }
+  }
+
+
+   /*function main()  {
+    var balance = document.getElementById("demo").innerHTML
+    var years = document.getElementById("two").innerHTML
+    var salvage = document.getElementById("three").innerHTML
+    document.getElementById("tit").innerHTML = "DOUBLE DECLINING BALANCE"
+   
+  } 
+  
+  function depreciatingRate(balance, rate, salvage, years, dog){
+    dog = dog + 1
+    years  = years - 1
+    if (balance - salvage -(balance -(balance - balance* rate)) > 0.00) {
+      document.getElementById("outpt").innerHTML = ((dog, balance  ,balance -(balance - balance* rate)))
+      document.getElementById("outpt").innerHTML =  outpt.innerHTML + years > 0 && depreciatingRate(balance - (rate * balance), rate, salvage, years, dog)
+    }
+    else {
+      document.getElementById("outpt").innerHTML = (dog, balance,  Math.min(balance - salvage, balance -(balance - balance* rate))) 
+      document.getElementById("outpt").innerHTML   = salvage
+  }
+}*/
+  </script>
+  {% endblock %}
+</body>
+</html>

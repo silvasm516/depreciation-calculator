@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+
+{% extends 'base.html' %}
+
+<html lang="en">
+<head>
+  {% block OutputStyle %}
+  <style>
+
+  body {
+    font-size: 100%;
+  }
+
+.ba, .dp, .hdngs {
+  list-style-type: none;
+}
+ 
+#h, #i, #j, #k, #l {
+    display: inline;
+    }
+
+#hat, #cat, #rat, #bat, #mat{
+    display: inline;
+  } 
+
+  @media only screen and (max-width: 600px); {
+
+    h1 {
+      font-size: 2em;
+    }
+
+    
+  }
+
+  </style>
+  {% endblock %}
+  <title>Bootstrap Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+{% block ddbOutput %}
+<div class="jumbotron text-center">
+  <h1>Double Declining Balance Depreciation Calculator</h1>
+  <p></p> 
+</div>
+  
+<div class="container">
+  <div class="row justify-content-center">  
+    <div class="col-text-center">
+      <h3>Double Declining Balance</h3> 
+    </div>    
+  </div>
+
+  <div class="row justify-content-center">
+
+  <div class="col-sm-2" id= "h">
+  </div>
+
+  <div class="col-" id= "i">
+  <ul> 
+  <li>YR</li>
+  </ul>
+  <ul>
+  </div>
+
+  <div class="col-" id= "j">
+  <ul class= "hdngs">
+  <li>BAL</li>
+  </ul>
+  </div>
+
+  <div class="col-" id= "k">
+  <ul class= "hdngs">
+  <li>DEP</li>
+  </ul>
+  </div>
+
+  <div class="col-sm-2" id= "l">
+  </div>
+
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-sm-2" id= "hat">
+    </div>
+    <div class="col-" id= "cat">
+      <ul class="yr">
+        {% for i in ar %}
+        <li id= "ar">{{i}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+      <div class="col-" id= "rat">
+      <ul class="ba">
+        {% for i in br %}
+        <li id= "br">{{i}}</li>
+        {% endfor %}
+      </ul>
+     </div>
+      <div class="col-" id= "bat">
+      <ul class="dp">
+        {% for i in cr %}
+        <li id= "cr">{{i}}</li>
+        {% endfor %}
+      </ul>
+      </div>
+    <div class="col-sm-2" id= "mat">        
+    </div>
+  </div>
+  </div>
+{% endblock %}
+</body>
+</html>
