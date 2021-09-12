@@ -27,7 +27,7 @@ def calculate(request):
 #    print("")
 #    print("%18s" "%20s" %("BALANCE", "DEPRECIATION"))
     
-    dog = 0000
+    dog = 0
     ar = []
     br = []
     cr = []
@@ -47,7 +47,10 @@ def calculate(request):
             'res' : result,
             'ar' : ar,
             'br' : br,
-            'cr' : cr
+            'cr' : cr,
+            'balance': balance,
+            'years' : years,
+            'salvage' : salvage
         }            
     temp = loader.get_template('DDBOutput.html')
     return HttpResponse(temp.render(c, request))

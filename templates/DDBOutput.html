@@ -23,6 +23,14 @@
     display: inline;
   } 
 
+.container  {
+  background-color: #d1e8e1;
+}
+
+#stats {
+  font-size: .8em;
+}
+
   @media only screen and (max-width: 600px); {
 
     h1 {
@@ -46,7 +54,7 @@
 {% block ddbOutput %}
 <div class="jumbotron text-center">
   <h1>Double Declining Balance Depreciation Calculator</h1>
-  <p></p> 
+  <p id= 'stats'>Orig. cost: {{balance}},   Life: {{years}},   Salvage: {{salvage}}</p> 
 </div>
   
 <div class="container">
