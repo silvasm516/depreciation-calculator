@@ -62,6 +62,9 @@ def depreciatingRate(BALANCE, RATE, SALVAGE, YEARS, dog, ar, br, cr):
             ar.append(math. floor((dog))), br.append(math. floor((BALANCE)))  ,cr.append(math.floor((BALANCE -(BALANCE - BALANCE* RATE))))
 #           print("%-2d" "%16d" "%16d"  % (dog, BALANCE  ,BALANCE -(BALANCE - BALANCE* RATE)))
             return YEARS > -1 and depreciatingRate(BALANCE - (RATE * BALANCE), RATE, SALVAGE, YEARS, dog, ar, br, cr)
+        else: 
+            ar.append(math. floor((dog))), br.append(math. floor((BALANCE))), cr.append(math.floor(BALANCE - SALVAGE))
+            ar.append(0), br.append(math. floor((SALVAGE))), cr.append(0)
         
             
 
