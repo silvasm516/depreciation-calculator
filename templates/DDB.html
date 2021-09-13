@@ -39,7 +39,7 @@
   <div class="row">
     <div class="col-sm-4">
       <h3>Enter Asset Cost</h3>     
-      <button onclick="myFunction()">Press</button>
+      <button onclick="FunctionOne()">Press</button>
       <p id= "cst"></p>
 	  <span id="einz"></span>
     </div>
@@ -63,7 +63,7 @@
 	<input  name= "cst" id="a">
 	<input  name= "lif" id="b">
 	<input  name= "sal" id="c">
-      <button onclick="main()">Submit Values</button>  
+      <button>Submit Values</button>  
   </div>
 </form>
   <br>
@@ -72,7 +72,7 @@
   
 </div>
 <script>
-  function myFunction() {
+  function FunctionOne() {
     var balance = prompt("Please enter asset cost");
     if (balance != null) {
       document.getElementById("cst").innerHTML = 
@@ -111,27 +111,6 @@
     }
   }
 
-
-   /*function main()  {
-    var balance = document.getElementById("demo").innerHTML
-    var years = document.getElementById("two").innerHTML
-    var salvage = document.getElementById("three").innerHTML
-    document.getElementById("tit").innerHTML = "DOUBLE DECLINING BALANCE"
-   
-  } 
-  
-  function depreciatingRate(balance, rate, salvage, years, dog){
-    dog = dog + 1
-    years  = years - 1
-    if (balance - salvage -(balance -(balance - balance* rate)) > 0.00) {
-      document.getElementById("outpt").innerHTML = ((dog, balance  ,balance -(balance - balance* rate)))
-      document.getElementById("outpt").innerHTML =  outpt.innerHTML + years > 0 && depreciatingRate(balance - (rate * balance), rate, salvage, years, dog)
-    }
-    else {
-      document.getElementById("outpt").innerHTML = (dog, balance,  Math.min(balance - salvage, balance -(balance - balance* rate))) 
-      document.getElementById("outpt").innerHTML   = salvage
-  }
-}*/
   </script>
   {% endblock %}
 </body>

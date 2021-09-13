@@ -99,7 +99,11 @@
     <div class="col-" id= "cat">
       <ul class="yr">
         {% for i in ar %}
+        {% if i > years %}
+        <li>{{0}}</li>
+        {% else %}
         <li id= "ar">{{i}}</li>
+        {% endif %}
         {% endfor %}
       </ul>
     </div>
@@ -111,7 +115,7 @@
       </ul>
      </div>
       <div class="col-" id= "bat">
-      <ul class="dp">
+      <ul class="dp"> 
         {% for i in cr %}
         <li id= "cr">{{i}}</li>
         {% endfor %}

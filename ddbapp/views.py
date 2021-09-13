@@ -5,7 +5,7 @@ from django.template import loader
 from django.http import HttpResponse
 import math
 
-# Create your views here.
+
 class DDBView(TemplateView):
     template_name = 'DDB.html'
     
@@ -22,25 +22,15 @@ def calculate(request):
         balance = int(bal)
         years = int(yrs) 
         salvage = int(salv)
-#    print("")
-#    print("DOUBLE DECLINING BALANCE")
-#    print("")
-#    print("%18s" "%20s" %("BALANCE", "DEPRECIATION"))
-    
+
+    YEARS = years
     dog = 0
     ar = []
     br = []
     cr = []
     rate = (1/years) * 2
     result = depreciatingRate(balance, rate, salvage, years, dog, ar, br, cr)
-#    if result == False: salvo = salvage
-#    for rat in ar:
-#        print(rat)
-#    for cat in br:
-#        print(cat)
-#    for bat in cr:
-#        print(bat)
-    # return result
+
     c = {   'tit' : 'Double Declining Balance',
             'bal' : 'Balance',
             'dep' : 'Depreciation',
@@ -51,6 +41,8 @@ def calculate(request):
             'balance': balance,
             'years' : years,
             'salvage' : salvage
+            
+
         }            
     temp = loader.get_template('DDBOutput.html')
     return HttpResponse(temp.render(c, request))
@@ -61,15 +53,17 @@ def calculate(request):
 def depreciatingRate(BALANCE, RATE, SALVAGE, YEARS, dog, ar, br, cr):
         dog = dog + 1
         YEARS = YEARS - 1
+        if YEARS == 0 : 
+            ar.append(math. floor((dog))), br.append(math. floor((BALANCE)))  , cr.append(math.floor(BALANCE - SALVAGE))
+        if YEARS == 0:
+            ar.append(0), br.append(math. floor((SALVAGE))), cr.append(0)
+            return
         if BALANCE - SALVAGE -(BALANCE -(BALANCE - BALANCE* RATE)) > 0.00:
             ar.append(math. floor((dog))), br.append(math. floor((BALANCE)))  ,cr.append(math.floor((BALANCE -(BALANCE - BALANCE* RATE))))
 #           print("%-2d" "%16d" "%16d"  % (dog, BALANCE  ,BALANCE -(BALANCE - BALANCE* RATE)))
-            
             return YEARS > -1 and depreciatingRate(BALANCE - (RATE * BALANCE), RATE, SALVAGE, YEARS, dog, ar, br, cr)
-        else: 
-#           print("%2d" "%16d" "%16d" % (dog, BALANCE,  min(BALANCE - SALVAGE, BALANCE -(BALANCE - BALANCE* RATE))))
-            ar.append(math.floor((dog))), br.append(math.floor((BALANCE))),  cr.append(math.floor((min(BALANCE - SALVAGE, BALANCE -(BALANCE - BALANCE* RATE))))) 
-#           print(SALVAGE)    
+        
+            
 
 
    
