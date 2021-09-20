@@ -29,9 +29,6 @@ def syd(request):
 
 def straightline(request):
     c = {   'tit' : 'Straight Line Depreciation Calculator'}
-
-
-
     temp = loader.get_template('DDB.html')
     return HttpResponse(temp.render(c, request))    
 
@@ -53,6 +50,11 @@ def calculate(request):
     if typ == "Sum of the Years Digits Depreciation Calculator":
         dict= {}
         dict = suyrdt(years, balance, salvage, typ)
+        temp = loader.get_template('DDBOutput.html')
+        return HttpResponse(temp.render(dict, request))
+    if typ == "Straight Line Depreciation Calculator":
+        dict= {}
+        dict = straightL(years, balance, salvage, typ)
         temp = loader.get_template('DDBOutput.html')
         return HttpResponse(temp.render(dict, request))
 
@@ -102,13 +104,10 @@ def depreciatingRate(BALANCE, RATE, SALVAGE, YEARS, dog, ar, br, cr):
             
 def suyrdt(years, balance, salvage, typ):
     
-    z =[]
-    
-    e = 0
-    
+    z =[]    
+    e = 0    
     for a in range(1, years + 1):
-        e = e + a
-            
+        e = e + a            
     syd = e
     base = balance - salvage
     rate = years/syd
@@ -146,12 +145,53 @@ def sumYD(b, y, syd, bal, z, ar, br, cr ):
     bal = round(bal, 0)
     depr = round(depr, 0)
     z.sort()
-    # print("%-2d" "%8d" "%16d" %(z[(len(z)-1)] - z[0]+ 1, depr, bal))
     ar.append(z[(len(z)-1)] - z[0]+ 1) 
-    cr.append(depr) 
-    br.append(bal)    
+    cr.append(int(depr))
+    br.append(int(bal))    
     sumYD(b, y - 1, syd, bal, z, ar, br, cr)
 
    
+def straightL(years, balance, salvage, typ):  
+    e = 0    
+    base = balance - salvage
+    depr = base/years
+    depr = round(depr, 0)
+    ar = []
+    br = []
+    cr = []
+    ar.append('0')
+    cr.append('NONE')
+    br.append(balance)
+    result = SL(balance, years, e, depr, ar, br, cr)
+
+    b = {   'tit' : "Straight Line",
+            'bal' : 'Balance',
+            'dep' : 'Depreciation',
+            'res' : result,
+            'ar' : ar,
+            'br' : br,
+            'cr' : cr, 
+            'balance': balance,
+            'years' : years,
+            'salvage' : salvage           
+        }
+
+    return b
 
 
+def SL(balance, years, e, depr, ar, br, cr):
+    if years < 1: return balance
+    e = e + 1
+    balance = balance - depr
+    years = years - 1
+    ar.append(e)
+    br.append(int(balance))
+    cr.append(int(depr))
+    SL(balance, years, e, depr, ar, br, cr)
+    
+
+
+    
+
+
+      
