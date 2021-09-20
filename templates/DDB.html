@@ -4,7 +4,7 @@
 
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>{{tit}} </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
       font-weight: bold;
     }
 
-    #a, #b, #c {
+    #a, #b, #c, #d{
 	visibility:hidden;   
     }
 
@@ -30,7 +30,7 @@
 {% endblock %}
 {% block ddb %}
 <div class="jumbotron text-center">
-  <h1>Double Declining Balance Depreciation Calculator</h1>
+  <h1 id= "typ">{{tit}}</h1>
    
 </div>
   
@@ -63,6 +63,7 @@
 	<input  name= "cst" id="a">
 	<input  name= "lif" id="b">
 	<input  name= "sal" id="c">
+	<input  name= "typ" id="d">
       <button>Submit Values</button>  
   </div>
 </form>
@@ -75,12 +76,15 @@
   function FunctionOne() {
     var balance = prompt("Please enter asset cost");
     if (balance != null) {
+      var t = document.getElementById("typ").innerHTML
       document.getElementById("cst").innerHTML = 
       "Asset cost: "
       var x = document.getElementById("a")
       x.value = + balance;	  
 	  var d = document.getElementById("einz")
 	  d.innerHTML = + balance;
+	  var u = document.getElementById("d")
+      u.value = t;
 	  
     }
   }

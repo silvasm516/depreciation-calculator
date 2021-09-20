@@ -11,7 +11,7 @@
     font-size: 100%;
   }
 
-.ba, .dp, .hdngs {
+.ba, .dp {
   list-style-type: none;
 }
  
@@ -42,7 +42,7 @@
 
   </style>
   {% endblock %}
-  <title>Bootstrap Example</title>
+  <title>Depreciation Calculator</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta charset="utf-8">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -53,17 +53,19 @@
 <body>
 {% block ddbOutput %}
 <div class="jumbotron text-center">
-  <h1>Double Declining Balance Depreciation Calculator</h1>
+  <h1>{{tit}}</h1>
   <p id= 'stats'>Orig. cost: {{balance}},   Life: {{years}},   Salvage: {{salvage}}</p> 
 </div>
   
 <div class="container">
   <div class="row justify-content-center">  
     <div class="col-text-center">
-      <h3>Double Declining Balance</h3> 
+      <h3></h3> 
     </div>    
   </div>
+</div>
 
+<div class="container">
   <div class="row justify-content-center">
 
   <div class="col-sm-2" id= "h">
@@ -73,47 +75,60 @@
   <ul> 
   <li>YR</li>
   </ul>
-  <ul>
   </div>
 
   <div class="col-" id= "j">
-  <ul class= "hdngs">
-  <li>BAL</li>
-  </ul>
-  </div>
-
-  <div class="col-" id= "k">
   <ul class= "hdngs">
   <li>DEP</li>
   </ul>
   </div>
 
-  <div class="col-sm-2" id= "l">
+  <div class="col-" id= "k">
+   <ul class= "hdngs">
+  <li>BAL</li>
+  </ul>  
   </div>
+  <div class="col-sm-2" id= "l">
 
   </div>
+  </div>
+
+  <!-- <div class="row justify-content-center">
+  <div class="col-sm-2" id= "top">
+  </div>    
+    <div class="col-" id= "top">
+      <ul class= 'hdngs'>
+        {% for i in dr %}
+        <li id= "dr">{{i}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-" id= "top">
+      <ul class= 'hdngs'>
+        <li>'-'</li>
+      </ul>
+    </div>    
+    <div class="col-" id= "top">
+      <ul class= 'hdngs'>
+        {% for i in dr %}
+        <li id= "er">{{i}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="col-sm-2" id= "top">
+    </div>
+  </div> -->
 
   <div class="row justify-content-center">
-    <div class="col-sm-2" id= "hat">
-    </div>
+  <div class="col-sm-2" id= "hat">
+  </div>
     <div class="col-" id= "cat">
       <ul class="yr">
-        {% for i in ar %}
-        <!-- {% if i > years %}
-        <li>{{0}}</li>
-        {% else %} -->
-        <li id= "ar">{{i}}</li>
-        <!-- {% endif %} -->
+        {% for i in ar %}    
+        <li id= "ar">{{i}}</li> 
         {% endfor %}
       </ul>
     </div>
-      <div class="col-" id= "rat">
-      <ul class="ba">
-        {% for i in br %}
-        <li id= "br">{{i}}</li>
-        {% endfor %}
-      </ul>
-     </div>
       <div class="col-" id= "bat">
       <ul class="dp"> 
         {% for i in cr %}
@@ -121,6 +136,13 @@
         {% endfor %}
       </ul>
       </div>
+      <div class="col-" id= "rat">
+      <ul class="ba">
+        {% for i in br %}
+        <li id= "br">{{i}}</li>
+        {% endfor %}
+      </ul>
+     </div>
     <div class="col-sm-2" id= "mat">        
     </div>
   </div>
@@ -128,3 +150,4 @@
 {% endblock %}
 </body>
 </html>
+ 
