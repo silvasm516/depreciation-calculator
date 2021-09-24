@@ -80,7 +80,8 @@ def doubl(years, balance, salvage, typ):
             'cr' : cr,
             'balance': balance,
             'years' : years,
-            'salvage' : salvage
+            'salvage' : salvage,
+            'color' : '#d1e8e1'
         }
     return c  
     
@@ -131,7 +132,8 @@ def suyrdt(years, balance, salvage, typ):
             'cr' : cr, 
             'balance': balance,
             'years' : years,
-            'salvage' : salvage           
+            'salvage' : salvage,
+            'color' : '#EEB983'        
         }
 
     return h        
@@ -173,7 +175,8 @@ def straightL(years, balance, salvage, typ):
             'cr' : cr, 
             'balance': balance,
             'years' : years,
-            'salvage' : salvage           
+            'salvage' : salvage,
+            'color' : "#F7F4AF"         
         }
 
     return b
