@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ddbapp.apps.DdbappConfig',
-    'dub_decl_bal.apps.Dub_decl_balConfig',
+    'ddbapp.apps.DdbappConfig',
 ]
 
 MIDDLEWARE = [
