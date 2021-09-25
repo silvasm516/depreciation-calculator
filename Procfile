@@ -1,1 +1,1 @@
-web: gunicorn ddbd_project.wsgi --log-file
+web: gunicorn ddbd_project.wsgi 
