@@ -1,1 +1,1 @@
-web: gunicorn dub_decl_bal_project.wsgi 
+web: gunicorn dub_decl_bal.wsgi 
