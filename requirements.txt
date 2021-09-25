@@ -12,7 +12,6 @@ idna==2.10
 lxml==4.6.3
 MechanicalSoup==1.1.0
 pandas==1.2.3
-Python==3.7.12
 Pillow==8.1.2
 pipenv==2020.11.15
 pyproj==3.0.1
