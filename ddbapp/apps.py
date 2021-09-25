@@ -6,4 +6,4 @@ from django.apps import AppConfig
 #     name = 'ddbapp'
 
 class Dub_decl_balConfig(AppConfig):
-    name = 'dub_decl_balapp'
+    name = 'dub_decl_bal'
