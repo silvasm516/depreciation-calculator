@@ -25,7 +25,7 @@ SECRET_KEY = 'tr9me&+wbl$_$ltb$_o98k0@=zki713n*-%9efel@o8u-o3z2n'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['https://git.heroku.com/secure-citadel-03902.git']
 
 
 # Application definition
