@@ -17,9 +17,9 @@
       font-weight: bold;
     }
 
-    #a, #b, #c, #d{
+    /*#a, #b, #c, #d{
 	visibility:hidden;   
-    }
+    }*/
 
     #cst, #lif, #sal {
     display: inline;
@@ -65,10 +65,10 @@
   <form method="POST" action= "/A">
   {% csrf_token %}
    <div class="col-sm-4">
-	<input  name= "cst" id="a">
-	<input  name= "lif" id="b">
-	<input  name= "sal" id="c">
-	<input  name= "typ" id="d">
+	<input  type= "hidden" name= "cst" id="a">
+	<input  type= "hidden" name= "lif" id="b">
+	<input  type= "hidden" name= "sal" id="c">
+	<input  type= "hidden" name= "typ" id="d">
       <button>Submit Values</button>  
   </div>
 </form>
