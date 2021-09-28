@@ -16,6 +16,10 @@ class Footer7View(TemplateView):
     template_name = 'Footer7.html'
 
 
+
+
+
+
 def doubledb(request):
     c = {   'tit' : 'Double Declining Balance Depreciation Calculator'}
     temp = loader.get_template('DDB.html')
@@ -194,7 +198,10 @@ def SL(balance, years, e, depr, ar, br, cr):
     
 
 
-    
 
+        
+    
+    
+    
 
       

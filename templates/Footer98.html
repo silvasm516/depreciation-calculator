@@ -273,14 +273,19 @@ section {
 
 				<p>Contact Us</p>
 
-				<form action="F/contact/" name="Contact" method="GET">
-                    {% csrf_token %}
-					<input type="text" name="email" placeholder="Email">
-					<textarea name="message" placeholder="Message"></textarea>
-					<input type= "submit" value= "send" style= "color:#ffffff;">
-				</form>
+				<form action="mailto:info@amazingspreadsheets.com" method= "POST"
+                enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="text" name="email" placeholder="Email">
+			    <textarea name="message" placeholder="Message"></textarea>
+			    </form>
+				<input type= "submit" value= "send" style= "color:#ffffff;">
+            </div>
 
-			</div>
+
+				
+
+			
 
 		</footer>
 
