@@ -9,6 +9,7 @@ urlpatterns = [
     path('X', syd, name= 'syd'),
     path('Y', straightline, name= 'straightline'),
     path('A', calculate, name= 'calculate'),
-    #path('static', manifest, name='manifest')
+
+    
     
 ]

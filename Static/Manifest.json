@@ -8,14 +8,14 @@
     "background_color": "#B0B0A9",
     "display": "standalone",
     "scope": "/",
-    "start_url": "https://christine.website/",
+    "start_url": "https://depreciationcalculator.net/",
     "description": "Calculate Depreciation in Three Methods",
     "orientation": "any",
     "icons": [
         {
             "src": "http://127.0.0.1:8000/static/img/avatar.png",
-            "src": "C:/Users/Steve/Desktop/DDBD/Static/icon-256x256.png",
-            "sizes": ["192x192", "256x256" "384x384", "512x512"]
+            "src": "https://storage.googleapis.com/gopig/icon-512x512.png",
+            "sizes": ["120x120", "196x196", "256x256", "512x512"]
         }
     ]
 }
