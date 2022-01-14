@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/js', 'serviceworker.js')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'tr9me&+wbl$_$ltb$_o98k0@=zki713n*-%9efel@o8u-o3z2n'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = false
 
 #ALLOWED_HOSTS = ['secure-citadel-03902.herokuapp.com, 127.0.0.1, 127.0.0.1:8000, localhost']
 ALLOWED_HOSTS = ['*']
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ddbapp.apps.DdbappConfig',
+    'pwa.apps.PwaConfig',
     
 ]
 
@@ -81,6 +82,36 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+PWA_APP_NAME = 'Depreciation'
+PWA_APP_DESCRIPTION = "Depreciation Calculator"
+PWA_APP_THEME_COLOR = '#B0B0A9'
+PWA_APP_BACKGROUND_COLOR = '#B0B0A9'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'any'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_ICONS = [
+    {
+        'src': '../static/images/calc-192X192.png',
+        'sizes': '192X192'
+    }
+]
+PWA_APP_ICONS_APPLE = [
+    {
+        'src': '../static/images/calc.png',
+        'sizes': '192X192'
+    }
+]
+PWA_APP_SPLASH_SCREEN = [
+    {
+        'src': '../static/images/calc-192X192.png',
+        'media': '(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)'
+    }
+]
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
 
 
 # Password validation
