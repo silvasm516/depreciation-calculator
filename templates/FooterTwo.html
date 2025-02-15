@@ -273,12 +273,17 @@ section {
 
 				<p>Contact Us</p>
 
-				<form action="F/contact/" name="Contact" method="GET">
-                    {% csrf_token %}
-					<input type="text" name="email" placeholder="Email">
-					<textarea name="message" placeholder="Message"></textarea>
-					<input type= "submit" value= "send" style= "color:#04B4AE;">
-				</form>
+				form action="https://getform.io/f/aroyoneb" method="POST">
+                             {% csrf_token %}
+				     <input type="text" name="name">
+                                     <input type="email" name="email">
+                                     <input type="text" name="message">
+                                    <button type="submit">Send</button>
+                               </form>
+         
+					
+					
+				
 
 			</div>
 
