@@ -14,7 +14,7 @@ MechanicalSoup==1.1.0
 pandas==1.2.3
 Pillow==8.1.2
 pipenv==2020.11.15
-pyproj==3.0.1
+pyproj==3.12
 pytz==2021.1
 requests==2.25.1
 selenium==3.141.0
